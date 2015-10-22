@@ -31,7 +31,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
+    if @post.user_id == current_user.id
+      @post.update(post_params)
+      flash[:notice] = 'Post edited successfully'
+    else
+      flash[:notice] = 'Cannot edit another users post'
+    end
     redirect_to '/posts'
   end
 
