@@ -1,5 +1,4 @@
 <%= form_for [@post, @comment] do |f| %>
-  <%= f.label :content %>
   <%= f.text_area :content %>
-  <%= f.submit 'Leave Comment' %>
+  <%= f.submit 'Leave Comment', :class => "btn btn-info btn-xs" %>
 <% end %>

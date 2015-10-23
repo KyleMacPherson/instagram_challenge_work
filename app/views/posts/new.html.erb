@@ -10,7 +10,6 @@
 <% end %>
 <%= form_for @post, html: {multipart: true} do |f| %>
   <%= f.file_field :image %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= f.submit %>
+  <%= f.text_area :content %>
+  <%= f.submit "Create Post", :class => "btn btn-info btn-xs"  %>
 <% end %>
