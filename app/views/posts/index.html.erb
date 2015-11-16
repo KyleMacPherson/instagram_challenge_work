@@ -1,8 +1,9 @@
-  <div class="col-md-4">
+<div class="container">
 <% if @posts.any? %>
+<div class="col-md-offset-3">
   <% @posts.each do |post| %>
-    <h2> <%= link_to post.content, post_path(post) %> </h2>
-      <%= image_tag post.image.url(:thumb) %>
+      <%= image_tag post.image.url(:medium) %><br>
+      <%= post.email %> says: <%= link_to post.content, post_path(post)%>
     <% if current_user %>
         <% if current_user.liked_posts.include?(post) %>
           <p><%= link_to "Unlike", post_likes_path(post), method: :post, :class => "glyphicon glyphicon-remove btn btn-sm btn-default" %></p>
@@ -34,4 +35,5 @@
 <% else %>
   No posts yet
 <% end %>
-      </div>
+</div>
+</div>
